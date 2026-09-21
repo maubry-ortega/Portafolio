@@ -1,0 +1,335 @@
+/* ============================================================
+   GLOBAL
+   ============================================================ */
+
+:root {
+    --black: #050505;
+    --black-soft: #0a0a0a;
+    --black-panel: #0d0f10;
+
+    --lime: #b8ff5a;
+    --lime-soft: #8fdc45;
+
+    --blue-dark: #071a2b;
+    --blue: #0d2a43;
+    --blue-soft: #16466b;
+
+    --gray: #7f8b94;
+    --gray-light: #c5ccd1;
+
+    --border: #182329;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--black);
+    color: var(--lime);
+
+    font-family:
+        "Cascadia Code",
+        "JetBrains Mono",
+        "Fira Code",
+        Consolas,
+        monospace;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   TERMINAL
+   ============================================================ */
+
+.terminal {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(13, 42, 67, 0.25),
+            transparent 35%
+        ),
+        var(--black);
+
+    border: 1px solid #11181c;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.terminal-header {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 16px;
+
+    background: #080909;
+
+    border-bottom: 1px solid var(--border);
+
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+
+/* ============================================================
+   TERMINAL BUTTONS
+   ============================================================ */
+
+.terminal-buttons {
+    display: flex;
+    gap: 7px;
+}
+
+.terminal-buttons span {
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+
+    background: #20272b;
+}
+
+.terminal-buttons span:first-child {
+    background: #30383d;
+}
+
+.terminal-buttons span:nth-child(2) {
+    background: #263036;
+}
+
+.terminal-buttons span:nth-child(3) {
+    background: #1d272c;
+}
+
+
+/* ============================================================
+   TITLE
+   ============================================================ */
+
+.terminal-title {
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    color: var(--gray);
+
+    font-size: 13px;
+
+    letter-spacing: 0.5px;
+
+    user-select: none;
+}
+
+
+/* ============================================================
+   TERMINAL BODY
+   ============================================================ */
+
+.terminal-body {
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 24px;
+
+    background: var(--black-panel);
+
+    scrollbar-width: thin;
+    scrollbar-color: var(--blue-soft) var(--black);
+}
+
+
+/* ============================================================
+   SCROLLBAR - CHROME / EDGE
+   ============================================================ */
+
+.terminal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+    background: var(--blue);
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--blue-soft);
+}
+
+
+/* ============================================================
+   OUTPUT
+   ============================================================ */
+
+#output {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+#output p {
+    margin: 0 0 4px;
+}
+
+#output pre {
+    margin: 8px 0 18px;
+
+    font-family: inherit;
+
+    color: var(--gray-light);
+
+    white-space: pre-wrap;
+    word-break: break-word;
+
+    line-height: 1.65;
+}
+
+
+/* ============================================================
+   COMMAND
+   ============================================================ */
+
+.command {
+    color: var(--lime);
+
+    background: rgba(184, 255, 90, 0.06);
+
+    padding: 1px 4px;
+
+    border: 1px solid rgba(184, 255, 90, 0.12);
+
+    border-radius: 3px;
+}
+
+
+/* ============================================================
+   PROMPT
+   ============================================================ */
+
+.prompt {
+    color: var(--lime);
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 6px rgba(184, 255, 90, 0.15);
+}
+
+
+/* ============================================================
+   INPUT LINE
+   ============================================================ */
+
+.input-line {
+    display: flex;
+    align-items: center;
+
+    min-height: 24px;
+
+    margin-top: 8px;
+}
+
+.input-line .prompt {
+    flex-shrink: 0;
+}
+
+#commandInput {
+    flex: 1;
+
+    min-width: 0;
+
+    margin-left: 8px;
+
+    padding: 0;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--lime);
+
+    font-family: inherit;
+    font-size: 14px;
+
+    caret-color: var(--lime);
+}
+
+#commandInput::selection {
+    background: var(--blue-soft);
+    color: white;
+}
+
+
+/* ============================================================
+   CURSOR / FOCUS
+   ============================================================ */
+
+#commandInput:focus {
+    outline: none;
+}
+
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+
+a {
+    color: var(--lime);
+}
+
+a:hover {
+    color: white;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .terminal-header {
+        height: 38px;
+        padding: 0 12px;
+    }
+
+    .terminal-body {
+        padding: 16px;
+    }
+
+    #output {
+        font-size: 13px;
+    }
+
+    #commandInput {
+        font-size: 13px;
+    }
+
+    .terminal-title {
+        font-size: 11px;
+    }
+}

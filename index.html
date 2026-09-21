@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portfolio Terminal</title>
+</head>
+
+<body>
+
+    <main class="terminal">
+
+        <header class="terminal-header">
+            <div class="terminal-buttons">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div class="terminal-title">
+                user@portfolio: ~
+            </div>
+        </header>
+
+
+        <section class="terminal-body">
+
+            <div id="output">
+                <p>Welcome to my portfolio.</p>
+                <p>Type <span class="command">help</span> to get started.</p>
+            </div>
+
+
+            <div class="input-line">
+
+                <span class="prompt">
+                    user@portfolio:~$
+                </span>
+
+                <input
+                    type="text"
+                    id="commandInput"
+                    autocomplete="off"
+                    autofocus
+                >
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script type="module" src="/src/script.js"></script>
+
+</body>
+</html>

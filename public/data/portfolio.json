@@ -1,0 +1,69 @@
+{
+  "profile": {
+    "name": "Maubry Ortega",
+    "username": "maubry-ortega",
+    "role": "Developer backend Embedded Systems & IoT Developer",
+    "location": "Colombia",
+    "description": "Desarrollo sistemas de la informacion, sistemas embebidos, IoT y aplicaciones web."
+  },
+
+  "skills": {
+    "languages": [
+      "Visual Basic",
+      "C#",
+      "Python",
+      "JavaScript",
+      "Typescript",
+      "Godot Script"
+    ],
+    "embedded": [
+      "Basberry pi",
+      "Arduino"
+    ],
+    "iot": [
+      "MQTT",
+      "Linux",
+      "Networking"
+    ],
+    "web": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Typescript"
+    ]
+  },
+
+  "projects": [
+    {
+      "id": "mqtt-iot",
+      "name": "MQTT IoT System",
+      "description": "Sistema IoT basado en ESP32 y MQTT.",
+      "technologies": [
+        "ESP32",
+        "MQTT",
+        "Raspberry Pi"
+      ],
+      "image": "assets/projects/mqtt-iot.webp",
+      "github": "https://github.com/tuusuario/mqtt-iot"
+    },
+    {
+      "id": "react-todo-list",
+      "name": "React Todo List",
+      "description": "Uno de mis primeros proyectos con React, desarrollado hace aproximadamente dos años como parte de mi aprendizaje en el desarrollo de aplicaciones web. Implementa una Todo List con gestión de tareas y subrayado de contenido.",
+      "technologies": [
+        "React",
+        "JavaScript",
+        "HTML",
+        "CSS"
+      ],
+      "image": "assets/projects/react-todo-list.webp",
+      "github": "https://github.com/maubry-ortega/react"
+    }
+  ],
+
+  "contact": {
+    "github": "https://github.com/maubry-ortega",
+    "linkedin": "https://linkedin.com/in/maubry",
+    "email": "ortegamaubry@email.com"
+  }
+}
