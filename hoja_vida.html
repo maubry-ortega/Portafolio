@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Maubry Yadid Ortega Sánchez — Hoja de Vida</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #eef1f5;
+    color: #2c3e50;
+    line-height: 1.45;
+    font-size: 13px;
+  }
+
+  /* ===== ENCABEZADO FIJO (se repite en cada página al imprimir) ===== */
+  .page-header {
+    display: none;
+  }
+
+  /* ===== PIE DE PÁGINA FIJO (se repite en cada página al imprimir) ===== */
+  .page-footer {
+    display: none;
+  }
+
+  .cv {
+    max-width: 850px;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  /* ===== PORTADA / ENCABEZADO PRINCIPAL ===== */
+  .hero {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 28px 35px;
+    background: linear-gradient(135deg, #0b6e4f, #0e8a63);
+    color: #fff;
+  }
+  .hero img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.6);
+    background: #fff;
+  }
+  .hero h1 { font-size: 24px; margin-bottom: 3px; }
+  .hero h2 { font-size: 13.5px; font-weight: 400; opacity: 0.95; margin-bottom: 8px; }
+  .hero .contacto { font-size: 12.5px; line-height: 1.55; }
+  .hero .contacto a { color: #fff; text-decoration: none; }
+
+  /* ===== CONTENIDO ===== */
+  main { padding: 25px 35px 30px; }
+
+  section { margin-bottom: 22px; }
+
+  section h3 {
+    font-size: 13.5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0b6e4f;
+    border-bottom: 2px solid #0b6e4f;
+    padding-bottom: 5px;
+    margin-bottom: 12px;
+  }
+
+  p, li { font-size: 13px; }
+
+  ul { list-style: none; padding-left: 0; }
+  ul li {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 4px;
+  }
+  ul li::before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: #0e8a63;
+    font-weight: bold;
+  }
+
+  .job { margin-bottom: 16px; }
+  .job h4 { font-size: 14px; color: #1a1a1a; }
+  .job .meta {
+    font-size: 12px;
+    color: #6b7a8d;
+    font-style: italic;
+    margin-bottom: 6px;
+  }
+
+  .proyecto { margin-bottom: 12px; }
+  .proyecto h4 { font-size: 13.5px; color: #1a1a1a; margin-bottom: 2px; }
+  .proyecto p { font-size: 12.5px; color: #444; text-align: justify; }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .skills-grid h4 {
+    font-size: 12.5px;
+    color: #0b6e4f;
+    margin-bottom: 6px;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    background: #e8f5ef;
+    color: #0b6e4f;
+    border: 1px solid #c3e3d5;
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 11.5px;
+  }
+
+  .edu-item { margin-bottom: 8px; }
+  .edu-item h4 { font-size: 13.5px; }
+  .edu-item span { font-size: 12px; color: #6b7a8d; font-style: italic; }
+
+  /* ===== EVITAR CORTES FEOS ===== */
+  .job, .proyecto, .edu-item, .skills-grid > div {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  section h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  /* ===== IMPRESIÓN ===== */
+  @page {
+    size: A4;
+    margin: 22mm 14mm 20mm 14mm;
+
+    /* Encabezado impreso */
+    @top-center {
+      content: "Maubry Yadid Ortega Sánchez — Hoja de Vida";
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 9px;
+      color: #0b6e4f;
+      border-bottom: 1px solid #c3e3d5;
+      padding-bottom: 3px;
+      width: 100%;
+    }
+
+    /* Pie de página impreso con número de página */
+    @bottom-right {
+      content: "Página " counter(page) " de " counter(pages);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 9px;
+      color: #6b7a8d;
+    }
+    @bottom-left {
+      content: "ortegamaubry@gmail.com | 312 534 3180";
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 9px;
+      color: #6b7a8d;
+    }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .cv {
+      box-shadow: none;
+      border-radius: 0;
+      margin: 0;
+      max-width: 100%;
+    }
+    .hero {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      padding: 18px 25px;
+    }
+    .hero img { width: 80px; height: 80px; }
+    .hero h1 { font-size: 20px; }
+    .hero h2 { font-size: 12px; }
+    .hero .contacto { font-size: 11px; }
+    main { padding: 15px 25px 20px; }
+    section { margin-bottom: 16px; }
+    .tag {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    section h3 {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero { flex-direction: column; text-align: center; }
+    .skills-grid { grid-template-columns: 1fr; }
+    main { padding: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="cv">
+
+  <!-- ===== ENCABEZADO PRINCIPAL ===== -->
+  <div class="hero">
+    <!-- Reemplaza el src por tu foto real -->
+    <img src="./foto.jpeg" alt="Foto de perfil">
+    <div>
+      <h1>Maubry Yadid Ortega Sánchez</h1>
+      <h2>Tecnólogo en Análisis y Desarrollo de Software | Soporte TI | Desarrollo de Software</h2>
+      <div class="contacto">
+        Cali, Valle del Cauca &nbsp;|&nbsp; 312 534 3180 &nbsp;|&nbsp; ortegamaubry@gmail.com<br>
+        LinkedIn: <a href="https://www.linkedin.com/in/maubry-ortega">linkedin.com/in/maubry-ortega</a>
+        &nbsp;|&nbsp;
+        GitHub: <a href="https://github.com/maubry-ortega">github.com/maubry-ortega</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- ===== PERFIL ===== -->
+    <section>
+      <h3>Perfil profesional</h3>
+      <p style="text-align: justify;">
+        Tecnólogo en Análisis y Desarrollo de Software con experiencia práctica en soporte técnico,
+        mantenimiento y configuración de equipos de cómputo, instalación de sistemas operativos, aplicaciones y
+        controladores, configuración de impresoras y periféricos, diagnóstico de fallas de hardware y software y
+        atención de requerimientos de usuarios. Cuento además con conocimientos en redes, bases de datos y
+        desarrollo de aplicaciones, lo que me permite abordar requerimientos tecnológicos tanto desde el área
+        de soporte como desde el desarrollo de soluciones informáticas. Me caracterizo por el compromiso, la
+        responsabilidad y la capacidad de aprendizaje continuo.
+      </p>
+    </section>
+
+    <!-- ===== EXPERIENCIA ===== -->
+    <section>
+      <h3>Experiencia</h3>
+
+      <div class="job">
+        <h4>Repuestos Cali — Soporte TI y Desarrollo</h4>
+        <div class="meta">Etapa productiva | 16 de abril de 2026 – 16 de octubre de 2026 | Cali, Valle del Cauca</div>
+        <ul>
+          <li>Diagnóstico y mantenimiento preventivo y correctivo de equipos de cómputo.</li>
+          <li>Instalación y configuración de sistemas operativos y aplicaciones.</li>
+          <li>Instalación y configuración de impresoras y dispositivos periféricos.</li>
+          <li>Diagnóstico de discos duros mediante herramientas especializadas.</li>
+          <li>Configuración y solución de problemas de conectividad de red.</li>
+          <li>Atención y solución de requerimientos tecnológicos de usuarios.</li>
+          <li>Configuración y puesta en funcionamiento de equipos destinados a diferentes áreas.</li>
+          <li>Instalación y configuración de impresoras POS.</li>
+          <li>Soporte a dispositivos de telefonía y equipos de infraestructura.</li>
+          <li>Apoyo en administración y configuración de servicios de red.</li>
+          <li>Implementación y soporte de equipos NUC y terminales ligeros.</li>
+          <li>Documentación de procedimientos técnicos y generación de evidencias.</li>
+          <li>Desarrollo de aplicaciones de escritorio (Visual Basic) y móviles (Ionic) según necesidades internas.</li>
+          <li>Consultas y gestión de bases de datos (Firebird, SQL).</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h4>Servicio Nacional de Aprendizaje (SENA CTPI) — Desarrollador FullStack y Monitor</h4>
+        <div class="meta">2024 – 2026</div>
+        <ul>
+          <li>Desarrollé y estructuré documentación técnica para el levantamiento de requerimientos de un aplicativo institucional del SENA.</li>
+          <li>Implementé y diseñé una interfaz intuitiva utilizando React y TypeScript, desarrollando una landing page para el aplicativo Ampia Yell con integración para la descarga de una aplicación móvil.</li>
+          <li>Implementé vistas y lógica backend en Python utilizando Django para el correcto funcionamiento y consumo de APIs.</li>
+          <li>Colaboré en equipo bajo la metodología ágil SCRUM, facilitando la comunicación entre áreas técnicas y la comunidad indígena Ámbaló para garantizar entregas eficientes.</li>
+          <li>Trabajé bajo la metodología Git Flow para el control de versiones y el trabajo colaborativo en entornos de desarrollo en la nube.</li>
+          <li>Me desempeñé como monitor del ambiente de formación, brindando soporte técnico y gestionando el cierre de tickets en plataformas institucionales del SENA.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== PROYECTOS ===== -->
+    <section>
+      <h3>Proyectos destacados</h3>
+
+      <div class="proyecto">
+        <h4>CLDARP — Control de Limpieza y Desinfección (Repuestos Cali)</h4>
+        <p>Aplicación móvil desarrollada con Ionic y React, instalada en celulares mediante Capacitor, actualmente en uso en 3 sedes con 3 pisos cada una. Automatiza el formulario de control de limpieza y desinfección con firma digital, registro de actividades por piso y sede, y diseño accesible para personas sordas. Incluye un panel web para el administrador donde se pueden editar correos, visualizar reportes con fecha, consultar actividades pasadas y programadas, y almacenar firmas y reportes en una carpeta desplegada y en base de datos.</p>
+      </div>
+
+      <div class="proyecto">
+        <h4>NewPrint (Repuestos Cali)</h4>
+        <p>Aplicación que genera automáticamente stickers para impresión, reemplazando la edición manual en Paint. Permite seleccionar el producto o ítem, calcular dimensiones, ajustar altura, tamaño, tipo de fuente y posición, e incluye un generador de código de barras universal adaptado a la numeración interna de la empresa.</p>
+      </div>
+
+      <div class="proyecto">
+        <h4>Automatización de sincronización Web–Empresa (Repuestos Cali)</h4>
+        <p>Proyecto de automatización que compara la información de la página web de la empresa (WordPress/WooCommerce) con los productos reales de la empresa almacenados en Firebird. Como no existía un plugin que consultara directamente la base de datos interna, se desarrolló una solución que realiza dos consultas, compara los datos y actualiza automáticamente el precio y la disponibilidad de los productos de marca propia publicados en la web (alrededor de 300 productos), evitando inconsistencias como mostrar productos disponibles en la web que en la empresa no existen.</p>
+      </div>
+
+      <div class="proyecto">
+        <h4>Sincronización de productos para cotizaciones (Repuestos Cali) — en desarrollo</h4>
+        <p>Proyecto orientado a la sincronización de más de 70.000 productos, cantidades y otros datos de la empresa hacia un nuevo aplicativo web encargado de generar cotizaciones desde Firebird, garantizando la continuidad y el correcto funcionamiento de la aplicación SAI.</p>
+      </div>
+
+      <div class="proyecto">
+        <h4>Actualización masiva de ítems en Firebird (Repuestos Cali)</h4>
+        <p>Aplicación general encargada de actualizar campos de la tabla de ítems en Firebird que no se usaban o requerían mantenimiento, como altura, ancho, ubicación y otros atributos. Permite la actualización y funcionamiento de estos datos para la creación y mejora de nuevos proyectos.</p>
+      </div>
+
+      <div class="proyecto">
+        <h4>Control de cartera y vencimiento de facturas (Repuestos Cali)</h4>
+        <p>Aplicativo que calcula automáticamente cuánto falta para que una factura venza y lleva un control detallado de los clientes. Trae los datos del cliente, cuánto debe, cuánto le falta, el tipo de factura, las facturas asociadas y los abonos asociados, todo según la fecha de consulta hacia adelante. Facilita al área de cartera el control de clientes que no han pagado, los que deben pagar y los que ya se deben cruzar. Incluye envío de correos de recordatorio a un cliente específico, a los que vencen ese día o a los que se seleccionen.</p>
+      </div>
+
+      <div class="proyecto">
+        <h4>PDIS — Control estructural de devoluciones (Repuestos Cali)</h4>
+        <p>Proyecto orientado a llevar un control más estructurado de las devoluciones de la empresa. Participé en el diseño y desarrollo inicial de la solución. El proyecto no se culminó por decisión de la empresa, pero sentó las bases para el manejo estructurado de devoluciones.</p>
+      </div>
+
+      <div class="proyecto">
+        <h4>Ampia Yell (SENA)</h4>
+        <p>Landing page desarrollada con React y TypeScript, con integración para la descarga de una aplicación móvil y backend en Django para el consumo de APIs.</p>
+      </div>
+
+      <div class="proyecto">
+        <h4>Aplicaciones y consultas internas (Repuestos Cali)</h4>
+        <p>Desarrollo de herramientas de escritorio y móviles, y consultas a bases de datos según necesidades operativas de la empresa.</p>
+      </div>
+    </section>
+
+    <!-- ===== HABILIDADES ===== -->
+    <section>
+      <h3>Habilidades técnicas</h3>
+      <div class="skills-grid">
+        <div>
+          <h4>Soporte TI / Infraestructura</h4>
+          <div class="tags">
+            <span class="tag">Diagnóstico hardware/software</span>
+            <span class="tag">Mantenimiento preventivo y correctivo</span>
+            <span class="tag">Instalación Windows y apps</span>
+            <span class="tag">Impresoras y POS</span>
+            <span class="tag">Soporte a usuarios</span>
+            <span class="tag">Redes</span>
+            <span class="tag">Diagnóstico de discos</span>
+            <span class="tag">Equipos NUC</span>
+            <span class="tag">WTware / terminales ligeros</span>
+            <span class="tag">RustDesk</span>
+            <span class="tag">NAS</span>
+            <span class="tag">Windows Server</span>
+            <span class="tag">Proxmox</span>
+            <span class="tag">TP-Link Omada</span>
+            <span class="tag">Telefonía IP</span>
+            <span class="tag">Cámaras y dispositivos de red</span>
+            <span class="tag">Documentación técnica</span>
+          </div>
+        </div>
+        <div>
+          <h4>Desarrollo de software</h4>
+          <div class="tags">
+            <span class="tag">Visual Basic</span>
+            <span class="tag">Ionic</span>
+            <span class="tag">React / TypeScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Dart</span>
+            <span class="tag">Flutter</span>
+            <span class="tag">Node.js (Express)</span>
+            <span class="tag">Flask</span>
+            <span class="tag">Django</span>
+            <span class="tag">SQL (MySQL, PostgreSQL)</span>
+            <span class="tag">Firebird</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Git / GitHub</span>
+            <span class="tag">Docker</span>
+            <span class="tag">WordPress</span>
+            <span class="tag">APIs</span>
+            <span class="tag">Capacitor</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FORMACIÓN ===== -->
+    <section>
+      <h3>Formación académica</h3>
+      <div class="edu-item">
+        <h4>Tecnólogo en Análisis y Desarrollo de Software — SENA</h4>
+        <span>2024 – 2026 | Etapa productiva hasta 16 de octubre de 2026</span>
+      </div>
+      <div class="edu-item">
+        <h4>Técnico en Programación de Software — SENA</h4>
+        <span>2022 – 2023</span>
+      </div>
+    </section>
+
+    <!-- ===== FORMACIÓN COMPLEMENTARIA ===== -->
+    <section>
+      <h3>Formación complementaria</h3>
+      <ul>
+        <li><strong>Redes y Medios de Transmisión</strong> — SENA | 14 – 15 de septiembre de 2026</li>
+        <li><strong>Herramientas para la Planeación Estratégica</strong> — SENA | 30 de junio – 02 de julio de 2026</li>
+        <li><strong>Gestión de Mercado, Comercialización y Ventas – Modelo Canvas</strong> — SENA | 04 – 06 de junio de 2026</li>
+        <li><strong>Mentalidad Empresarial e Ideas de Negocio</strong> — SENA | 31 de marzo – 06 de abril de 2026</li>
+        <li><strong>Mecatrónica</strong> — SENA | 2026 (ASM, sensores, PIC y microcontroladores, diferencias entre microcontrolador y microprocesador, aplicaciones en industria e IoT)</li>
+        <li><strong>TypeScript para principiantes desde 0</strong> — Udemy | 2024</li>
+        <li><strong>Scrum Foundation Professional Certification (SFPCT)</strong> — CertiProf | 2024</li>
+      </ul>
+    </section>
+
+    <!-- ===== IDIOMAS ===== -->
+    <section>
+      <h3>Idiomas</h3>
+      <ul>
+        <li>Español: Nativo</li>
+        <li>Inglés: A2</li>
+      </ul>
+    </section>
+
+  </main>
+
+</div>
+</body>
+</html>
